@@ -27,10 +27,10 @@ io.on("connection", socket => {
   );
 
   // Listener for message to browser from server
-  socket.on("createMessage", message => {
+  socket.on("createMessage", (message, callback) => {
     console.log("createMessage", message);
     io.emit("newMessage", generateMessage(message.from, message.text));
-
+    callback("this is from the server.");
     // socket.broadcast.emit("newMessage", {
     //   from: message.from,
     //   text: message.text,
