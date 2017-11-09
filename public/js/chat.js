@@ -38,12 +38,6 @@ socket.on("newMessage", function(message) {
 
   jQuery("#messages").append(html);
   scrollToBottom();
-
-  // console.log("newMessage", message);
-  // var li = jQuery("<li></li>");
-  // li.text(`${message.from} ${formattedTime}: ${message.text}`);
-  //
-  // jQuery("#messages").append(li);
 });
 
 socket.on("newLocationMessage", function(message) {
