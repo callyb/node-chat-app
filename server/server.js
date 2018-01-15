@@ -24,6 +24,10 @@ io.on("connection", socket => {
       return callback("Name and room name are required.");
     }
 
+    if (users.isNameUnique(params.room, params.name)) {
+      return callback("This name already exists, please choose another.");
+    }
+
     socket.join(params.room);
     users.removeUser(socket.id);
     users.addUser(socket.id, params.name, params.room);

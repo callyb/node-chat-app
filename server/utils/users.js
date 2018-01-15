@@ -53,6 +53,12 @@ class Users {
 
     return namesArray;
   }
+  isNameUnique(room, name) {
+    var list = this.getUserList(room);
+    var duplicate = list.filter(user => user === name);
+
+    return duplicate.length ? true : false;
+  }
 }
 
 module.exports = { Users };
